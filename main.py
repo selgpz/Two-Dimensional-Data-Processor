@@ -19,7 +19,7 @@ class DynamicGrid:
 			return total_sum
 
 	def find_smallest(self):
-		smallest = 100
+		smallest = 101
 		for row in self.matrix:
 			for i in row:
 				if i < smallest:
@@ -34,8 +34,28 @@ class DynamicGrid:
 					biggest = i
 		return biggest
 
-	def sort_row(self):
-		pass
+
+	def quicksort(self, array):
+		less = []
+		equal = []
+		greater = []
+
+		if len(array) > 1:
+			pivot = array[0]
+			for x in array:
+				if x < pivot:
+					less.append(x)
+				elif x == pivot:
+					equal.append(x)
+				elif x > pivot:
+					greater.append(x)
+			return self.quicksort(less) + equal + self.quicksort(greater)
+		else:
+			return array
+
+	def sort_row(self, row):
+		array = self.matrix.pop(row)
+		self.matrix.insert(row, self.quicksort(array))
 
 	def find_element(self, element):
 		numList = []
@@ -57,8 +77,10 @@ class DynamicGrid:
 
 	def view_matrix(self):
 		print("")
+		i = 0
 		for row in self.matrix:
-			print(row)
+			i += 1
+			print(f"{i}. {row}")
 
 """
 Main function below!
@@ -68,7 +90,8 @@ def main():
 	print("Dynamic Matrix Generated!")
 
 	while True:
-		print("Welcome to a two-dimentional matrix processor\n" \
+		print("" \
+		"Welcome to a two-dimentional matrix processor\n" \
 		"1. View the matrix\n" \
 		"2. Total sum of the matrix\n" \
 		"3. Smallest number in the matrix\n" \
@@ -88,20 +111,29 @@ def main():
 
 		elif (choice == "3"):
 			num = matrix.find_smallest()
+			print("" \
+			f"Smallest number is {num}" \
+			"")
 			if matrix.find_element(num):
-				print("There is no smallest number... this is a bug.")
+				print("There is no smallest number.")
 
 		elif (choice == "4"):
 			num = matrix.find_biggest()
+			print("" \
+			f"Biggest number is {num}" \
+			"")
 			if matrix.find_element(num):
-				print("There is no biggest number... this is a bug.")
+				print("There is no biggest number.")
 
 		elif (choice == "5"):
-			#
-			# enter a row here
-			#
 
-			matrix.sort_row()
+			string = input("Enter a row to sort (1 - 10): ")
+			if not string.isdecimal:
+				print("Invalid input. Please enter a number.")
+				continue
+
+			row = int(string)
+			matrix.sort_row(row - 1)
 		elif (choice == "6"):
 
 			string = input("Enter an element: ")
