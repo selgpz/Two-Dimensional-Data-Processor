@@ -1,7 +1,9 @@
 import random
+import os
 
 class DynamicGrid:
-	#
+
+	# initialize with randomly generated numbers already made
 	def __init__(self):
 		self.matrix = []
 		for i in range(10):
@@ -26,16 +28,19 @@ class DynamicGrid:
 				return smallest
 
 	def find_biggest(self):
-		
+
 	def sort_row(self):
 	def find_element(self, element):
-	def view_matrix(seelf):
+	def view_matrix(self):
+		for row in self.matrix:
+			print(row)
 
 def main():
 	matrix = DynamicGrid()
 	print("Dynamic Matrix Generated!")
 
 	while True:
+		os.system('cls' if os.name == 'nt' else 'clear')
 		print("Welcome to a two-dimentional matrix processor" \
 		"1. View the matrix" \
 		"2. Total sum of the matrix" \
@@ -46,10 +51,16 @@ def main():
 		"7. Exit" \
 		"")
 
-		choice = input("Enter a choice (1 - 7):")
+		choice = input("Enter a choice (1 - 7): ")
 		if (choice == "1"):
-			matrix.print
-		else if (choice == "2"):
+			matrix.view_matrix()
+		elif (choice == "2"):
+			print(f"Total Sum: {matrix.total_sum()}")
+		elif (choice == "3"):
+			matrix.find_smallest()
+		elif (choice == "4"):
+			matrix.find_
+
 
 if __name__ == "__main__":
 	main()
