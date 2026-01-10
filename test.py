@@ -26,7 +26,14 @@ class DynamicGrid:
 				if i < smallest:
 					smallest = i
 				
-				return smallest
+		return smallest
+	def find_biggest(self):
+		biggest = 0
+		for row in self.matrix:
+			for i in row:
+				if i > biggest:
+					biggest = i
+		return biggest
 
 
 
@@ -34,4 +41,5 @@ grid = DynamicGrid()
 
 print(grid.matrix)
 
-print(grid.find_smallest())
+#print(grid.find_smallest())
+print(grid.find_biggest())

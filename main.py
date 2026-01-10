@@ -18,15 +18,21 @@ class DynamicGrid:
 			return total_sum
 
 	def find_smallest(self):
-		smallest = 0
+		smallest = 100
 		for row in self.matrix:
 			for i in row:
 				if i < smallest:
 					smallest = i
-				return smallest
+		return smallest
 
 	def find_biggest(self):
-		
+		biggest = 0
+		for row in self.matrix:
+			for i in row:
+				if i > biggest:
+					biggest = i
+		return biggest
+
 	def sort_row(self):
 	def find_element(self, element):
 	def view_matrix(seelf):
