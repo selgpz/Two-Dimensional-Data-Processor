@@ -36,7 +36,22 @@ class DynamicGrid:
 		return biggest
 
 	def sort_row(self):
+		pass
 	def find_element(self, element):
+		numList = []
+		i = 0
+		for row in self.matrix:
+			j = 0
+			for column in row:
+				if element == column:
+					print(f"{i+1},{j+1}")
+					arr = [i, j]
+					numList.append(arr)
+				j += 1
+			i += 1
+		if not numList:
+			print ("Element not Found")
+		
 	def view_matrix(self):
 		for row in self.matrix:
 			print(row)
