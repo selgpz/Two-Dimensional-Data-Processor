@@ -90,7 +90,7 @@ def main():
 	print("Dynamic Matrix Generated!")
 
 	while True:
-		print("" \
+		print("\n" \
 		"Welcome to a two-dimentional matrix processor\n" \
 		"1. View the matrix\n" \
 		"2. Total sum of the matrix\n" \
