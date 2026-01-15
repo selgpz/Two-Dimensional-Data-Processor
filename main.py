@@ -16,7 +16,7 @@ class DynamicGrid:
 		for row in self.matrix:
 			for i in row:
 				total_sum += i
-			return total_sum
+		return total_sum
 
 	def find_smallest(self):
 		smallest = 101
